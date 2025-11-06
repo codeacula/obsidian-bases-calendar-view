@@ -1,6 +1,7 @@
 import esbuild from "esbuild";
 import process from "process";
 import builtins from "builtin-modules";
+import { copyFileSync } from "fs";
 
 const banner =
 	`/*
@@ -41,9 +42,19 @@ const context = await esbuild.context({
 	minify: prod,
 });
 
+// Build CSS separately
+const cssContext = await esbuild.context({
+	entryPoints: ["src/main.css"],
+	bundle: true,
+	outfile: "styles.css",
+	minify: prod,
+});
+
 if (prod) {
 	await context.rebuild();
+	await cssContext.rebuild();
 	process.exit(0);
 } else {
 	await context.watch();
+	await cssContext.watch();
 }
