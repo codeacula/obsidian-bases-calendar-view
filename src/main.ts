@@ -11,6 +11,5 @@ export default class ObsidianMapsPlugin extends Plugin {
 		});
 	}
 
-	onunload() {
-	}
+	onunload() { }
 }
