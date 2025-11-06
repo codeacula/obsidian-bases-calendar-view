@@ -45,10 +45,15 @@ export class CalendarView extends BasesView {
 		}
 
 		for (const entry of this.data.data) {
+			const dueDate = entry.getValue(desiredProperty);
+			console.log("Due date:", dueDate);
+			if (!dueDate) {
+				continue;
+			}
 			this.calendarInstance.addEvent({
 				title: entry.file.name,
-				start: entry.getValue('file.due-date'),
-				end: entry.getValue('file.due-date')
+				start: new Date(),
+				end: new Date(),
 			});
 		}
 	}
