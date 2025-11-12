@@ -7,7 +7,7 @@ export default class ObsidianMapsPlugin extends Plugin {
 			name: 'Calendar',
 			icon: 'lucide-calendar',
 			factory: (controller, containerEl) => new CalendarView(controller, containerEl),
-			options: () => [],
+			options: () => CalendarView.getViewOptions(),
 		});
 	}
 
