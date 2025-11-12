@@ -11,6 +11,9 @@ importers:
       '@event-calendar/core':
         specifier: ^4.7.1
         version: 4.7.1
+      '@types/event-calendar__core':
+        specifier: ^4.7.0
+        version: 4.7.0
       '@types/node':
         specifier: ^16.18.126
         version: 16.18.126
@@ -28,7 +31,7 @@ importers:
         version: 0.17.3
       obsidian:
         specifier: latest
-        version: 1.10.2-1(@codemirror/state@6.5.0)(@codemirror/view@6.38.1)
+        version: 1.10.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.1)
       tslib:
         specifier: 2.4.0
         version: 2.4.0
@@ -251,6 +254,9 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
+
+  '@types/event-calendar__core@4.7.0':
+    resolution: {integrity: sha512-SPtSChJyamYDR92iMiARvS/3mK9tg6Imb9dO8sbTpqLzU7mRc6Sj8uSbnT0rzEz3NASjF3ChDelclJNplfXmTQ==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -597,8 +603,8 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
-  js-yaml@4.1.0:
-    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
+  js-yaml@4.1.1:
+    resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
     hasBin: true
 
   json-buffer@3.0.1:
@@ -650,11 +656,11 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  obsidian@1.10.2-1:
-    resolution: {integrity: sha512-nScksVndWZDz0e/OAPa7Yo0aFaNuv6amyHg2L6MvlxfTJD6TfmkprVWhHjiVvUIGwcdvZRy6LGkn/v8D2E9jng==}
+  obsidian@1.10.3:
+    resolution: {integrity: sha512-VP+ZSxNMG7y6Z+sU9WqLvJAskCfkFrTz2kFHWmmzis+C+4+ELjk/sazwcTHrHXNZlgCeo8YOlM6SOrAFCynNew==}
     peerDependencies:
       '@codemirror/state': 6.5.0
-      '@codemirror/view': 6.38.1
+      '@codemirror/view': 6.38.6
 
   once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
@@ -758,8 +764,8 @@ packages:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
 
-  svelte@5.43.4:
-    resolution: {integrity: sha512-tPNp21nDWB0PSHE+VrTvEy9cFtDp2Q+ATxQoFomISEVdikZ1QZ69UqBPz/LlT+Oc8/LYS/COYwDQZrmZEUr+JQ==}
+  svelte@5.43.6:
+    resolution: {integrity: sha512-RnyO9VXI85Bmsf4b8AuQFBKFYL3LKUl+ZrifOjvlrQoboAROj5IITVLK1yOXBjwUWUn2BI5cfmurktgCzuZ5QA==}
     engines: {node: '>=18'}
 
   text-table@0.2.0:
@@ -913,7 +919,7 @@ snapshots:
       globals: 13.24.0
       ignore: 5.3.2
       import-fresh: 3.3.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       minimatch: 3.1.2
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -923,7 +929,7 @@ snapshots:
 
   '@event-calendar/core@4.7.1':
     dependencies:
-      svelte: 5.43.4
+      svelte: 5.43.6
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -979,6 +985,10 @@ snapshots:
       '@types/tern': 0.23.9
 
   '@types/estree@1.0.8': {}
+
+  '@types/event-calendar__core@4.7.0':
+    dependencies:
+      svelte: 5.43.6
 
   '@types/json-schema@7.0.15': {}
 
@@ -1226,7 +1236,7 @@ snapshots:
       imurmurhash: 0.1.4
       is-glob: 4.0.3
       is-path-inside: 3.0.3
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       json-stable-stringify-without-jsonify: 1.0.1
       levn: 0.4.1
       lodash.merge: 4.6.2
@@ -1373,7 +1383,7 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  js-yaml@4.1.0:
+  js-yaml@4.1.1:
     dependencies:
       argparse: 2.0.1
 
@@ -1421,7 +1431,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  obsidian@1.10.2-1(@codemirror/state@6.5.0)(@codemirror/view@6.38.1):
+  obsidian@1.10.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.1):
     dependencies:
       '@codemirror/state': 6.5.0
       '@codemirror/view': 6.38.1
@@ -1505,7 +1515,7 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  svelte@5.43.4:
+  svelte@5.43.6:
     dependencies:
       '@jridgewell/remapping': 2.3.5
       '@jridgewell/sourcemap-codec': 1.5.5
