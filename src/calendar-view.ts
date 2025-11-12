@@ -4,7 +4,8 @@ import {
 	QueryController,
 	ViewOption,
 } from 'obsidian';
-import { createCalendar, destroyCalendar, DayGrid, type Calendar } from '@event-calendar/core';
+import { Calendar } from '@fullcalendar/core'
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 export const CalendarViewType = 'calendar';
 
@@ -27,23 +28,23 @@ export class CalendarView extends BasesView {
 		this.containerEl = this.scrollEl.createDiv({ cls: 'calendar-container' });
 		this.calendarEl = this.containerEl.createDiv({ cls: 'calendar' });
 
-		this.calendarInstance = createCalendar(
+		this.calendarInstance = new Calendar(
 			this.calendarEl,
-			[DayGrid]
+			{
+				plugins: [dayGridPlugin],
+				initialView: 'dayGridMonth',
+			}
 		);
+		this.calendarInstance.render();
 		this.updateCalendarEvents();
 	}
 
 	onDataUpdated(): void {
-		this.loadConfig();
 		this.updateCalendarEvents();
 	}
 
 	private destruct(): void {
-		destroyCalendar(this.calendarInstance);
-	}
-
-	private loadConfig(): void {
+		this.calendarInstance.destroy();
 	}
 
 	static getViewOptions(): ViewOption[] {
@@ -68,14 +69,16 @@ export class CalendarView extends BasesView {
 			return;
 		}
 
+		this.calendarInstance.removeAllEvents();
+
 		const startDateProp = this.config.get(DEFAULT_START_DATE_PROP) as BasesPropertyId;
 		const endDateProp = this.config.get(DEFAULT_END_DATE_PROP) as BasesPropertyId;
 
 		for (const entry of this.data.data) {
-			const startDate = entry.getValue(startDateProp);
-			const endDate = entry.getValue(endDateProp);
-			console.log("Start date:", startDate);
-			console.log("End date:", endDate);
+			const startDate = entry.getValue(startDateProp) || "";
+			const endDate = entry.getValue(endDateProp) || "";
+			console.log("Start date:", startDate.toString());
+			console.log("End date:", endDate.toString());
 
 			if (!startDate || !endDate) {
 				continue;
